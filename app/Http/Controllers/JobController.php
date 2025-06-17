@@ -67,8 +67,6 @@ class JobController extends Controller
     {
         // $selected_job = Job::find($id); --------------> Route Model Binding
 
-        Gate::authorize('edit-job', $job);
-
         return view('jobs.edit', ['job' => $job]);
     }
 
