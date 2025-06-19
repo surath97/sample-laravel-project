@@ -4,7 +4,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>My Website</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    @vite(['resources/css/app.css'])
 </head>
 <body class="h-full">
     <!--
@@ -38,13 +38,13 @@
 
                         @guest
                             <x-nav-link href="/login" :active="request()->is('login') ? true : false">Log In</x-nav-link>
-                            <x-nav-link href="/register" :active="request()->is('register') ? true : false">Register</x-nav-link>    
+                            <x-nav-link href="/register" :active="request()->is('register') ? true : false">Register</x-nav-link>
                         @endguest
 
                         @auth
                             <form class="m-0" action="/logout" method="post">
                                 @csrf
-                                
+
                                 <x-form-button class="px-3 py-2">Log Out</x-form-button>
                             </form>
                         @endauth
